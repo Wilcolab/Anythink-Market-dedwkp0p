@@ -93,8 +93,25 @@ describe('Arithmetic', function () {
         });
     });
 
-// TODO: Challenge #1
- 
+    // add test for the power operation
+    describe('Power', function () {
+        it('raises a positive integer to a positive integer power', function (done) {
+            request.get('/arithmetic?operation=power&operand1=2&operand2=3')
+                .expect(200)
+        });
+        it('raises a positive integer to a negative integer power', function (done) {
+            request.get('/arithmetic?operation=power&operand1=2&operand2=-3')
+                .expect(200)
+        });
+        it('raises a negative integer to a positive integer power', function (done) {
+            request.get('/arithmetic?operation=power&operand1=-2&operand2=3')
+                .expect(200)
+        });
+        it('raises a negative integer to a negative integer power', function (done) {
+            request.get('/arithmetic?operation=power&operand1=-2&operand2=-3')
+                .expect(200)
+        });
+    }); 
 
     describe('Multiplication', function () {
         it('multiplies two positive integers', function (done) {
